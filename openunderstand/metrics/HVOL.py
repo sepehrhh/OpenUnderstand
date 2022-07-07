@@ -1,6 +1,5 @@
 import os
 import math
-import sys
 from antlr4 import *
 from gen.javaLabeled.JavaLexer import JavaLexer
 from gen.javaLabeled.JavaParserLabeled import JavaParserLabeled
@@ -24,7 +23,6 @@ def get_project_info(index):
     ]
     project_name = project_names[index]
     project_path = f"../../../benchmarks/{project_name}"
-    print(project_path)
     project_path = os.path.abspath(project_path)
 
     return {
