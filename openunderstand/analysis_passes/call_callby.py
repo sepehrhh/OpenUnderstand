@@ -1,25 +1,8 @@
-"""
-## Description
-This module find all OpenUnderstand call and callby references in a Java project
-
-
-## References
-
-
-"""
-
-
-# from OpenUnderstand.openunderstand.gen.javaLabeled.JavaParserLabeledListener import JavaParserLabeledListener
-# from OpenUnderstand.openunderstand.gen.javaLabeled.JavaParserLabeled import JavaParserLabeled
-# import OpenUnderstand.openunderstand.analysis_passes.class_properties as class_properties
 from gen.javaLabeled.JavaParserLabeledListener import JavaParserLabeledListener
 from gen.javaLabeled.JavaParserLabeled import JavaParserLabeled
 import analysis_passes.class_properties as class_properties
 
 class CallAndCallBy(JavaParserLabeledListener):
-    """
-    #Todo: Implementing the ANTLR listener pass for Java Call and Java Callby reference kind
-    """
     implement = []
 
 
@@ -124,4 +107,3 @@ class CallAndCallBy(JavaParserLabeledListener):
                                          "line": line,
                                          "col": col,
                                          "type_ent_longname": str(called)})
-
