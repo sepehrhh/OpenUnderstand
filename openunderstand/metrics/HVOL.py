@@ -1,6 +1,8 @@
-import os
+import os, sys
 import math
 from antlr4 import *
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE)
 from gen.javaLabeled.JavaLexer import JavaLexer
 from gen.javaLabeled.JavaParserLabeled import JavaParserLabeled
 from gen.javaLabeled.JavaParserLabeledListener import JavaParserLabeledListener
@@ -22,7 +24,7 @@ def get_project_info(index):
         '105_freemind',
     ]
     project_name = project_names[index]
-    project_path = f"../../../benchmarks/{project_name}"
+    project_path = f"../../benchmark/{project_name}"
     project_path = os.path.abspath(project_path)
 
     return {
@@ -50,8 +52,6 @@ class Project:
             for file in file_names:
                 if '.java' in str(file):
                     path = os.path.join(dir_path, file)
-                    path = path.replace("/", "\\")
-                    path = os.path.abspath(path)
                     self.files.append((file, path))
 
 
@@ -191,8 +191,8 @@ class HVOLListener(JavaParserLabeledListener):
 
 if __name__ == '__main__':
     info = get_project_info(PRJ_INDEX)
-    print(info['PROJECT_PATH'])
-    print(info['PROJECT_NAME'])
+    # print(info['PROJECT_PATH'])
+    # print(info['PROJECT_NAME'])
     p = Project(info['PROJECT_PATH'], info['PROJECT_NAME'])
     p.get_java_files()
     for file_name, file_path in p.files:
