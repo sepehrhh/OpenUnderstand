@@ -24,7 +24,7 @@ def get_project_info(index):
         '105_freemind',
     ]
     project_name = project_names[index]
-    project_path = f"../../benchmark/{project_name}"
+    project_path = f"../../../benchmark/{project_name}"
     project_path = os.path.abspath(project_path)
 
     return {
